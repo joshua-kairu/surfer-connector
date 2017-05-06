@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.accountkit.AccessToken;
 import com.facebook.accountkit.AccountKit;
+import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
@@ -58,6 +60,45 @@ public class LoginActivity extends AppCompatActivity {
         if ( currentAccessToken != null ) { launchAccountActivity(); }
 
     } // end onCreate
+
+    @Override
+    // begin onActivityResult
+    // this is where we know the status of the login
+    protected void onActivityResult( int requestCode, int resultCode, Intent data ) {
+
+        // 0. super stuff
+        // 1. if this is what we requested
+        // 1a. if the login failed, toast the user
+        // 1b. else successful login, so go to account activity
+
+        // 0. super stuff
+
+        super.onActivityResult( requestCode, resultCode, data );
+
+        // 1. if this is what we requested
+
+        // begin if this is our request code
+        if ( requestCode == APP_REQUEST_CODE ) {
+
+            AccountKitLoginResult loginResult = data.getParcelableExtra(
+                    AccountKitLoginResult.RESULT_KEY );
+
+            // 1a. if the login failed, toast the user
+
+            if ( loginResult.getError() != null ) {
+                String toastMessage = loginResult.getError().getErrorType().getMessage();
+                Toast.makeText( this, toastMessage, Toast.LENGTH_SHORT ).show();
+            }
+
+            // 1b. else successful login, so go to account activity
+
+            else {
+                launchAccountActivity();
+            }
+
+        } // end if this is our request code
+
+    } // end onActivityResult
 
     /* Other Methods */
 
