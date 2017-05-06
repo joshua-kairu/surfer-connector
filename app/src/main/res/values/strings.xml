@@ -1,3 +1,5 @@
+<!-- strings -->
+
 <resources>
     <string name="app_name">Surf Connect</string>
     <string name="login_email_label">Login with Email</string>
@@ -7,4 +9,16 @@
     <string name="phone_label">Phone Number</string>
     <string name="email_label">Email</string>
     <string name="logout_label">Log Out</string>
+    
+    <!-- facebook credentials -->
+
+    <!-- this app's facebook app id -->
+    <string name="facebook_app_id" translatable="false">1745848365705581</string>
+
+    <!-- the account kit's client token -->
+    <string name="account_kit_client_token" translatable="false">2de8fb48de2714421c116a1d0ff44756</string>
+
+    <!-- the login scheme used to handle email login. It is the app id preceded by "ak"  -->
+    <string name="ak_login_protocol_scheme" translatable="false">ak1745848365705581</string>
+    
 </resources>

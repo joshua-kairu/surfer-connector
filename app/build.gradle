@@ -17,14 +17,22 @@ android {
     }
 }
 
+// extensions
+ext {
+    accountKitVersion = "4.22.0"
+    constraintLayoutVersion = "1.0.2"
+    libPhoneNumberVersion = "8.4.0"
+    supportLibraryVersion = "25.3.1"
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.googlecode.libphonenumber:libphonenumber:8.4.0'
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    compile "com.android.support:support-v4:$supportLibraryVersion"
+    compile "com.googlecode.libphonenumber:libphonenumber:$libPhoneNumberVersion"
 
-    compile 'com.facebook.android:account-kit-sdk:4.+'
-    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile "com.facebook.android:account-kit-sdk:$accountKitVersion"
+    compile "com.facebook.android:facebook-android-sdk:$accountKitVersion"
 }

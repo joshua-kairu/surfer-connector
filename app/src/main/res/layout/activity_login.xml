@@ -52,7 +52,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/email_login_button"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:onClick="onPhoneLogin"
+        />
 
     <Button
         android:id="@+id/email_login_button"
@@ -71,5 +73,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:onClick="onEmailLogin"
+        />
+
 </android.support.constraint.ConstraintLayout>
