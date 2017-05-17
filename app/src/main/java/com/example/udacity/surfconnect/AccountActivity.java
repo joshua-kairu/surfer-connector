@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.accountkit.Account;
 import com.facebook.accountkit.AccountKit;
@@ -60,6 +61,7 @@ public class AccountActivity extends AppCompatActivity {
 
                 PhoneNumber phoneNumber = account.getPhoneNumber();
 
+                // begin if there is a phone number
                 if ( phoneNumber != null ) {
 
                     String formattedPhoneNumber = formatPhoneNumber( phoneNumber.toString() );
@@ -67,15 +69,16 @@ public class AccountActivity extends AppCompatActivity {
                     info.setText( formattedPhoneNumber );
                     infoLabel.setText( R.string.phone_label );
 
-                }
-
-                // 1-last. toast any errors
+                } // end if there is a phone number
 
             } // end onSuccess
 
+            // 1-last. toast any errors
+
             @Override
             public void onError( AccountKitError accountKitError ) {
-
+                String toastMessage = accountKitError.getErrorType().getMessage();
+                Toast.makeText( AccountActivity.this, toastMessage, Toast.LENGTH_SHORT ).show();
             }
 
         } ); // end AccountKit.getCurrentAccount
