@@ -3,6 +3,7 @@ package com.example.udacity.surfconnect;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,9 +20,23 @@ import java.util.Locale;
 
 public class AccountActivity extends AppCompatActivity {
 
+    /* CONSTANTS */
+
+    /* Integers */
+
+    /* Strings */
+
+    /* VARIABLES */
+
     TextView id;
     TextView infoLabel;
     TextView info;
+
+    /* METHODS */
+
+    /* Getters and Setters */
+
+    /* Overrides */
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -84,6 +99,26 @@ public class AccountActivity extends AppCompatActivity {
         } ); // end AccountKit.getCurrentAccount
 
     }
+
+    /* Other Methods */
+
+    /** Click handler for when the logout button is tapped. */
+    // begin onLogout
+    public void onLogout( View view ) {
+
+        // 0. logout
+        // 1. start the login activity
+
+        // 0. logout
+
+        AccountKit.logOut();
+
+        // 1. start the login activity
+
+        launchLoginActivity();
+
+    } // end onLogout
+
 
     private void launchLoginActivity() {
         Intent intent = new Intent( this, LoginActivity.class );
