@@ -12,6 +12,7 @@ import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
+import com.facebook.appevents.AppEventsLogger;
 
 /**
  * Logs the user in.
@@ -29,7 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
     /* VARIABLES */
 
-    /* CONSTRUCTOR */
+    /* AppEventsLoggers */
+
+    private AppEventsLogger mLogger; // analytics logger
 
     /* METHODS */
 
@@ -44,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         // 0. necessaries
         // 1. check if user has already logged in
         // 1a. if s/he has, no need to stick around LoginActivity
+        // 2. register app events logger
 
         // 0. necessaries
 
@@ -58,6 +62,10 @@ public class LoginActivity extends AppCompatActivity {
         // 1a. if s/he has, no need to stick around LoginActivity
 
         if ( currentAccessToken != null ) { launchAccountActivity(); }
+
+        // 2. register app events logger
+
+        mLogger = AppEventsLogger.newLogger( this );
 
     } // end onCreate
 
@@ -136,14 +144,42 @@ public class LoginActivity extends AppCompatActivity {
      *
      * Calls {@link LoginActivity#onLogin(LoginType)} with a Phone login type.
      */
-    public void onPhoneLogin ( View view ) { onLogin( LoginType.PHONE ); }
+    // begin method onPhoneLogin
+    public void onPhoneLogin ( View view ) {
+
+        // 0. log that we're logging in via phone
+        // 1. log in via phone
+
+        // 0. log that we're logging in via phone
+
+        mLogger.logEvent( "onPhoneLogin" );
+
+        // 1. log in via phone
+
+        onLogin( LoginType.PHONE );
+
+    } // end method onPhoneLogin
 
     /**
      * Called when the "Login with Email" button is tapped.
      *
      * Calls {@link LoginActivity#onLogin(LoginType)} with an Email login type.
      */
-    public void onEmailLogin ( View view ) { onLogin( LoginType.EMAIL ); }
+    // begin method onEmailLogin
+    public void onEmailLogin ( View view ) {
+
+        // 0. log that we're logging in via email
+        // 1. log in via email
+
+        // 0. log that we're logging in via email
+
+        mLogger.logEvent( "onEmailLogin" );
+
+        // 1. log in via email
+
+        onLogin( LoginType.EMAIL );
+
+    } // end method onEmailLogin
 
     /** Launches the {@link AccountActivity} and terminates the {@link LoginActivity}. */
     // begin method launchAccountActivity
