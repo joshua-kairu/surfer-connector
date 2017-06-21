@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/accountBackground"
-    tools:context="com.example.udacity.surfconnect.AccountActivity">
+    tools:context="com.jk.udacity.surferconnector.AccountActivity">
 
     <ImageView
         android:id="@+id/profile_image"

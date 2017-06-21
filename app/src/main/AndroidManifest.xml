@@ -2,8 +2,12 @@
 <manifest
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.udacity.surfconnect">
+
+    package="com.jk.surferconnector"
+
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -27,7 +31,7 @@
 
         <activity
 
-            android:name="com.example.udacity.surfconnect.LoginActivity"
+            android:name=".LoginActivity"
 
             android:screenOrientation="portrait"
 
@@ -47,7 +51,7 @@
 
         <activity
 
-            android:name="com.example.udacity.surfconnect.AccountActivity"
+            android:name=".AccountActivity"
 
             android:label="@string/account"
 

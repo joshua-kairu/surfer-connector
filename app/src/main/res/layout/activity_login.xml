@@ -4,7 +4,7 @@
     android:id="@+id/view_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.udacity.surfconnect.LoginActivity">
+    tools:context="com.jk.udacity.surferconnector.LoginActivity">
 
 
     <ImageView
