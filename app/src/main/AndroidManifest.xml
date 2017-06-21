@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- manifest -->
+
 <manifest
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,6 +27,8 @@
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme"
+
+        tools:ignore="AllowBackup"
 
         >
 
@@ -77,17 +82,50 @@
 
             <intent-filter>
 
+                <!-- to start this activity, this is the action that the activity's intent should
+                have -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <!-- to start this activity, these are the categories the activity's intent should
+                have -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- to start this activity, data in the activity's intent should
+                follow this scheme -->
+                <data android:scheme="@string/ak_login_protocol_scheme" />
+
+            </intent-filter>
+
+        </activity>
+
+        <!-- activity to create a custom tab to enable browser flow for FB instead of defaulting to
+        the FB app. useful in situations where the user does not have the FB app installed -->
+
+        <activity
+
+            android:name="com.facebook.CustomTabActivity"
+
+            android:exported="true"
+
+            >
+
+            <intent-filter>
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="@string/ak_login_protocol_scheme" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
 
             </intent-filter>
 
         </activity>
+
+
 
         
         <!-- facebook -->

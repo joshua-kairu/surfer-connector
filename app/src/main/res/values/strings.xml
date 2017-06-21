@@ -18,7 +18,10 @@
     <!-- the account kit's client token -->
     <string name="account_kit_client_token" translatable="false">2de8fb48de2714421c116a1d0ff44756</string>
 
-    <!-- the login scheme used to handle email login. It is the app id preceded by "ak"  -->
+    <!-- the login scheme used to handle email login. It is the app id preceded by "ak" -->
     <string name="ak_login_protocol_scheme" translatable="false">ak1745848365705581</string>
+
+    <!-- the login scheme used to handle facebook login. It is the app id preceded by "fb" -->
+    <string name="fb_login_protocol_scheme" translatable="false">fb1745848365705581</string>
     
 </resources>
